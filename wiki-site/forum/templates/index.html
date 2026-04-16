@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Mike's Notebook Forum</h1>
+<form action="/post" method="post">
+  <input name="author" placeholder="Your name" />
+  <br/>
+  <textarea name="content" placeholder="Message" rows="4" cols="60"></textarea>
+  <br/>
+  <button type="submit">Post</button>
+</form>
+<hr/>
+{% for p in posts %}
+  <div>
+    <strong>{{p['author']}}</strong> <em>{{p['created']}}</em>
+    <p>{{p['content']}}</p>
+  </div>
+  <hr/>
+{% endfor %}
+{% endblock %}
